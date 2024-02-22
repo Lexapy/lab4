@@ -1,9 +1,11 @@
 package Abstract;
 
 import Enum.Size;
+import Interface.*;
+
 import java.util.ArrayList;
 
-public abstract class Obj {
+public abstract class Obj implements CanImagine, Composite {
     protected String name;
     protected ArrayList<Size> size = new ArrayList<>();
     protected ArrayList<String> with = new ArrayList<>();
@@ -34,9 +36,11 @@ public abstract class Obj {
         }
         return result;
     }
+    @Override
     public void imagine(String idea) {
         System.out.println("Представьте себе, что есть " + name + idea);
     }
+    @Override
     public void imagine() {
         System.out.println("Представьте себе, что есть " + name);
     }
