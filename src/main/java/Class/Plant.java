@@ -12,7 +12,7 @@ public class Plant extends Obj {
     @Override
     public String toString() {
         String result = super.toString();
-        if (this.with.size() > 0) {
+        if (!this.with.isEmpty()) {
             result += " на котором ";
             for(int i = 0; i < this.with.size(); i++) {
                 //System.out.println(with.get(i));

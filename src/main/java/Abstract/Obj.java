@@ -2,6 +2,7 @@ package Abstract;
 
 import Enum.Size;
 import Interface.*;
+import Exception.NotNameException;
 
 import java.util.ArrayList;
 
@@ -10,7 +11,16 @@ public abstract class Obj implements CanImagine, Composite {
     protected ArrayList<Size> size = new ArrayList<>();
     protected ArrayList<String> with = new ArrayList<>();
     public Obj(String name) {
+        if (name.isEmpty()) {
+            throw new NotNameException("Должно быть имя!");
+        }
         this.name = name;
+    }
+
+    private class NotNeed extends Obj {
+        public NotNeed(String name) {
+            super(name);
+        }
     }
     public void addSize(Size new_size) {
         size.add(new_size);
@@ -24,7 +34,7 @@ public abstract class Obj implements CanImagine, Composite {
     public String toString() {
         String result = name;
 
-        if (this.size.size() > 0) {
+        if (!this.size.isEmpty()) {
             result += " ";
             for(int i = 0; i < this.size.size(); i++) {
                 if (i != this.size.size() - 1) {
@@ -44,6 +54,7 @@ public abstract class Obj implements CanImagine, Composite {
     public void imagine() {
         System.out.println("Представьте себе, что есть " + name);
     }
+    @Override
     public void contain(Obj some) {
         with.add(some.toString());
     }

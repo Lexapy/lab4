@@ -1,8 +1,24 @@
 import Class.*;
 import Enum.Size;
-
+import Exception.*;
 public class Story {
     public static void main(String[] args) {
+        Planet moon = new Planet("Луна")
+        {
+            @Override
+            public boolean SeatAble() {
+                return CountOfRocket < 1;
+            }
+        };
+        Rocket rocket = new Rocket("ракета");
+        Rocket.Tail tail = new Rocket.Tail();
+        tail.SitDown();
+        try {
+            rocket.seat(moon);
+        } catch (NoPlaceException e) {
+            System.out.println(e.getMessage());
+        }
+
         Shorties shorties = new Shorties("Коротышки");
         shorties.Shout("ура", 3);
 
@@ -43,5 +59,7 @@ public class Story {
         pine.equate_size(birch);
         Plant willows = new Plant("плакучие ивы");
         willows.equate_size(birch);
+
+        shorties.Shout("Смотрите, " + birch.toString(), 1);
     }
 }
