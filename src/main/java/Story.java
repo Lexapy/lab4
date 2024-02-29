@@ -6,13 +6,13 @@ public class Story {
         Planet moon = new Planet("Луна")
         {
             @Override
-            public boolean SeatAble() {
-                return CountOfRocket < 1;
+            public boolean seatAble() {
+                return countOfRocket < 1;
             }
         };
         Rocket rocket = new Rocket("ракета");
         Rocket.Tail tail = new Rocket.Tail();
-        tail.SitDown();
+        tail.sitDown();
         try {
             rocket.seat(moon);
         } catch (NoPlaceException e) {
@@ -20,7 +20,7 @@ public class Story {
         }
 
         Shorties shorties = new Shorties("Коротышки");
-        shorties.Shout("ура", 3);
+        shorties.shout("ура", 3);
 
         Plant grass = new Plant("травка");
         grass.addSize(Size.TINY);
@@ -34,6 +34,7 @@ public class Story {
         shorties.laught();
 
         Plant trees = new Plant("Деревья");
+
         trees.addSize(Size.SMALL);
         trees.addSize(Size.LIKEABROOM);
         trees.addSize(Size.EARTH);
@@ -60,6 +61,6 @@ public class Story {
         Plant willows = new Plant("плакучие ивы");
         willows.equate_size(birch);
 
-        shorties.Shout("Смотрите, " + birch.toString(), 1);
+        shorties.shout("Смотрите, " + birch.toString(), 1);
     }
 }

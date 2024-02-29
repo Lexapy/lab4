@@ -6,7 +6,7 @@ import Exception.NotNameException;
 
 import java.util.ArrayList;
 
-public abstract class Obj implements CanImagine, Composite {
+public abstract class Obj implements Imaginable, Composite {
     protected String name;
     protected ArrayList<Size> size = new ArrayList<>();
     protected ArrayList<String> with = new ArrayList<>();
@@ -15,12 +15,6 @@ public abstract class Obj implements CanImagine, Composite {
             throw new NotNameException("Должно быть имя!");
         }
         this.name = name;
-    }
-
-    private class NotNeed extends Obj {
-        public NotNeed(String name) {
-            super(name);
-        }
     }
     public void addSize(Size new_size) {
         size.add(new_size);

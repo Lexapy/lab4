@@ -10,7 +10,7 @@ public class Shorties {
         this.name = name;
     }
 
-    public void Shout(String text, int count) {
+    public void shout(String text, int count) {
         System.out.println(this.name + " прокричали:");
         for (int i = 0; i < count; ++i) {
             System.out.println(text.toUpperCase()+"!!!");
@@ -21,10 +21,16 @@ public class Shorties {
         System.out.println(this.name + " удивились, что " + reason);
     }
     public void see(Plant plant) {
-        System.out.print("Для того чтобы разглядеть " + plant.getName() + " надо ");
+         System.out.print("Для того чтобы разглядеть " + plant.getName() + " надо ");
         ArrayList<Size> tmp = plant.getSize();
         if (tmp.contains(Size.TINY) || tmp.contains(Size.SMALL) || tmp.contains(Size.UNDERSIZED)) {
-            System.out.println("пригнуться или присесть на корточки");
+            class Action {
+                public void toSquat() {
+                    System.out.println("пригнуться или присесть на корточки");
+                }
+            }
+            Action action = new Action();
+            action.toSquat();
         } else {
             System.out.println("просто приглядеться");
         }
@@ -33,7 +39,4 @@ public class Shorties {
     public void laught() {
         System.out.println(this.name + " смеялись из-за этого");
     }
-
-
-
 }
